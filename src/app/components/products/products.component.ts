@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemResponse } from '../../models/item.models';
+import { items } from '../../data/item.data';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  item : ItemResponse[] = [];
+
+  constructor(private carritoService : CarritoService) { 
+    // this.item = items;
+  }
 
   ngOnInit(): void {
+    this.item = items;
+  }
+
+  /*private agregarProducto( product : ItemResponse ) {
+    localStorage.setItem('item', product);
+  }*/
+
+  enviarProducto( producto : ItemResponse ) {
+    this.carritoService.agregarCarrito(producto, 1);
   }
 
 }

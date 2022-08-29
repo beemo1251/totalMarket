@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,10 @@ import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartHeadComponent } from './components/cart-head/cart-head.component';
+import { registerLocaleData } from '@angular/common';
+import localeEsPe from '@angular/common/locales/es-PE';
+
+registerLocaleData(localeEsPe, 'es')
 
 @NgModule({
   declarations: [
@@ -24,7 +28,7 @@ import { CartHeadComponent } from './components/cart-head/cart-head.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: "es-PE"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

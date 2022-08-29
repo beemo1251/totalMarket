@@ -22,63 +22,18 @@
         <div class="category">
             <p class="title-category">COCINA</p>
             <div class="list-products">
-                <div class="card-product">
+                <div class="card-product" *ngFor="let product of item">
                     <div class="img-product">
-                        <img src="" alt="">
+                        <img src='../../../assets/images/{{product.idItem}}.webp' alt="">
                     </div>
                     <div class="content-product">
                         <div class="head-card">
-                            <p>AFILADOR DE CUCHILLOS</p>
-                            <p>📌Afilador de cuchillos con mango ergonómico. 📌Antideslizante</p>
+                            <p class="ctitle">{{product.desc1Item}}</p>
+                            <p class="cdescrip">{{product.desc2Item}}</p>
                         </div>
                         <div class="footer-card">
-                            <p>S/. 12.00</p>
-                            <p><i class="fa-solid fa-square-plus"></i></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="img-product">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content-product">
-                        <div class="head-card">
-                            <p>AFILADOR DE CUCHILLOS</p>
-                            <p>📌Afilador de cuchillos con mango ergonómico. 📌Antideslizante</p>
-                        </div>
-                        <div class="footer-card">
-                            <p>S/. 12.00</p>
-                            <p><i class="fa-solid fa-square-plus"></i></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="img-product">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content-product">
-                        <div class="head-card">
-                            <p>AFILADOR DE CUCHILLOS</p>
-                            <p>📌Afilador de cuchillos con mango ergonómico. 📌Antideslizante</p>
-                        </div>
-                        <div class="footer-card">
-                            <p>S/. 12.00</p>
-                            <p><i class="fa-solid fa-square-plus"></i></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="img-product">
-                        <img src="" alt="">
-                    </div>
-                    <div class="content-product">
-                        <div class="head-card">
-                            <p>AFILADOR DE CUCHILLOS</p>
-                            <p>📌Afilador de cuchillos con mango ergonómico. 📌Antideslizante</p>
-                        </div>
-                        <div class="footer-card">
-                            <p>S/. 12.00</p>
-                            <p><i class="fa-solid fa-square-plus"></i></p>
+                            <p>{{product.price | currency : 'PEN'}}</p>
+                            <button type="button" class="action-card" (click)="enviarProducto(product)"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>

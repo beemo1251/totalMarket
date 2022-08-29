@@ -1,3 +1,36 @@
-<app-cart-head></app-cart-head>
-<app-cart-list></app-cart-list>
-<a href="" [routerLink]="['/products']">home</a>
+<div class="back-menu">
+    <button type="button" class="" [routerLink]="['/products']"><i class="fa-solid fa-angle-left"></i><p>Volver al menú</p></button>
+</div>
+<div class="bar-description">
+    <div class="title-bar">
+        <p>Su Carrito</p>
+    </div>
+    <div class="description-bar">
+        <div class="quantity">
+            <p>1</p>
+        </div>
+        <div class="total-amount">
+            <p>S/. 12,00</p>
+        </div>
+    </div>
+</div>
+<div class="list-cart">
+    <div class="card-product" *ngFor="let item of item">
+        <div class="img-product">
+            <img src="../../../assets/images/{{item.idItem}}.webp" alt="">
+        </div>
+        <div class="content-product">
+            <div class="head-card">
+                <p class="ctitle">{{item.desc1Item}}</p>
+                <p class="cprice">{{item.price | currency : 'PEN'}}</p>
+            </div>
+            <div class="footer-card">
+                <div class="action-card">
+                    <i class="fa-solid fa-trash" [routerLink]="['/**']"></i>
+                    <p>1</p>
+                    <i class="fa-solid fa-plus" [routerLink]="['/**']"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

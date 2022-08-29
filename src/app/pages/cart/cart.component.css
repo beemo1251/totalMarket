@@ -1,0 +1,127 @@
+.back-menu {
+    margin-left: 5px;
+}
+
+.back-menu button {
+    margin: 15px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    background: none;
+    width: 14%;
+    height: 25px;
+    color: #ff0000;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.back-menu button:hover {
+    background: #ff00001b;
+    cursor: pointer;
+}
+
+.bar-description {
+    width: 100%;
+    display: flex;
+    background-color: #f2f2f2;
+    color: #ff0000;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar {
+    margin: auto 0 auto 0;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.description-bar {
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+}
+
+.description-bar .quantity {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.description-bar .total-amount {
+    font-size: 1.2em;
+}
+
+.list-cart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.card-product {
+    width: 100%;
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bfbfbf;
+    margin-top: 15px;
+}
+
+.img-product {
+    width: 8%;
+}
+
+.img-product img {
+    width: 100%;
+}
+
+.content-product {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.head-card .ctitle {
+    font-size: 0.8em;
+}
+
+.head-card .cprice {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #ff0000;
+}
+
+.footer-card {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: auto;
+}
+
+.action-card {
+    display: flex;
+    width: 80px;
+    height: 25px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.action-card i {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    color: #ff0000;
+}
+
+.action-card i:hover {
+    cursor: pointer;
+    background-color: #ff000023;
+}
+
+.action-card p {
+    margin: auto;
+}
