@@ -24,8 +24,8 @@ export class ProductsComponent implements OnInit {
     localStorage.setItem('item', product);
   }*/
 
-  enviarProducto( producto : ItemResponse ) {
-    this.carritoService.agregarCarrito(producto, 1);
+  enviarProducto( producto : ItemResponse, cantidad : number ) {
+    this.carritoService.agregarCarrito(producto, cantidad);
   }
 
 }

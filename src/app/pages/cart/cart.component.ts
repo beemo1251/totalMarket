@@ -10,12 +10,33 @@ import { CarritoService } from '../../services/carrito.service';
 export class CartComponent implements OnInit {
 
   item : ItemResponse[] = [];
+  TotalAmount = 0;
+  TotalQuantity = 0;
 
   constructor(private carritoService : CarritoService) { }
 
   ngOnInit(): void {
     this.item = this.carritoService.listarCarrito();
-    console.log(this.item);
+    this.calcularTotal();
+  }
+
+  sumarCantidad(producto : ItemResponse, cantidad : number) {
+    this.carritoService.obtenerItemRepetido(producto, cantidad);
+  }
+
+  restarCantidad(producto : ItemResponse, cantidad : number) {
+    this.carritoService.obtenerItemRepetido(producto, cantidad);
+  }
+
+  quitarProducto() {
+
+  }
+
+  calcularTotal() {
+    for(let i = 0; i < this.item.length; i++){
+      this.TotalAmount += this.item[i].price * this.item[i].stock;
+      this.TotalQuantity += this.item[i].stock;
+    }
   }
 
 }
