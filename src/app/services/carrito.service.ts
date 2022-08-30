@@ -14,7 +14,6 @@ export class CarritoService {
   agregarCarrito(producto: ItemResponse, cantidad: number) {
 
     var repetido = this.buscarItemRepetido(producto, this.itemTemp);
-    console.log(repetido);
 
     if (repetido) {
 
@@ -40,7 +39,6 @@ export class CarritoService {
 
   buscarItemRepetido(producto : ItemResponse, lista : ItemResponse[]) : boolean {
     var response = false;
-    console.log(lista.length);
     for(var i = 0; i < lista.length; i++){
       if (lista[i].idItem == producto.idItem)
       {
@@ -58,5 +56,32 @@ export class CarritoService {
         this.itemTemp[i].stock = this.itemTemp[i].stock + cantidad;
       }
     }
+  }
+
+  quitarProducto(producto : ItemResponse) {
+    for (let i = 0; i < this.itemTemp.length; i++) {
+      if (this.itemTemp[i].idItem == producto.idItem)
+      {
+        this.itemTemp.splice(i, 1);
+      }
+    }
+  }
+
+  calcularQuantityTotal(array : ItemResponse[]) : number {
+    var TotalQuantity = 0;
+    for(let i = 0; i < array.length; i++){
+      TotalQuantity += array[i].stock;
+      // this.TotalAmount += (this.item[i].price * this.item[i].stock);
+    }
+    return TotalQuantity;
+  }
+
+  calcularAmountTotal(array : ItemResponse[]) : number {
+    var TotalAmount = 0;
+    for(let i = 0; i < array.length; i++){
+      // TotalQuantity += this.item[i].stock;
+      TotalAmount += (array[i].price * array[i].stock);
+    }
+    return TotalAmount;
   }
 }

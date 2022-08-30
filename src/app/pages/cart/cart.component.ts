@@ -17,26 +17,27 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.item = this.carritoService.listarCarrito();
-    this.calcularTotal();
+    this.TotalAmount = this.carritoService.calcularAmountTotal(this.item);
+    this.TotalQuantity = this.carritoService.calcularQuantityTotal(this.item);
+    // this.calcularTotal();
   }
 
   sumarCantidad(producto : ItemResponse, cantidad : number) {
     this.carritoService.obtenerItemRepetido(producto, cantidad);
+    this.TotalAmount = this.carritoService.calcularAmountTotal(this.item);
+    this.TotalQuantity = this.carritoService.calcularQuantityTotal(this.item);
   }
 
   restarCantidad(producto : ItemResponse, cantidad : number) {
     this.carritoService.obtenerItemRepetido(producto, cantidad);
+    this.TotalAmount = this.carritoService.calcularAmountTotal(this.item);
+    this.TotalQuantity = this.carritoService.calcularQuantityTotal(this.item);
   }
 
-  quitarProducto() {
-
+  quitarProducto(producto : ItemResponse) {
+    this.carritoService.quitarProducto(producto);
+    this.carritoService.listarCarrito();
+    this.TotalAmount = this.carritoService.calcularAmountTotal(this.item);
+    this.TotalQuantity = this.carritoService.calcularQuantityTotal(this.item);
   }
-
-  calcularTotal() {
-    for(let i = 0; i < this.item.length; i++){
-      this.TotalAmount += this.item[i].price * this.item[i].stock;
-      this.TotalQuantity += this.item[i].stock;
-    }
-  }
-
 }

@@ -4,11 +4,52 @@
 }
 
 .btn-carrito {
+    /* width: 100%; */
+    width: 75.5vw;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 15px;
+}
+
+.btn-carrito button {
     width: 100%;
-    height: 30px;
-    margin-left: 5px;
+    height: 100%;
     border: none;
     border-radius: 5px;
-    background-color: #ff0000;
-    padding: 10px;
+    background: #ff0000;
+    text-align: center;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px 0px 25px;
+    color: #fff;
+}
+
+.btn-carrito button:hover {
+    cursor: pointer;
+}
+
+.quantity-total {
+    width: 2.5%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.352);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.amount-total {
+    width: 8%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.352);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
 }

@@ -41,3 +41,16 @@
         </div>
     </div>
 </div>
+<div class="btn-carrito" *ngIf="QuantityTotal!=0">
+    <button type="button" [routerLink]="['/cart']">
+        <div class="quantity-total">
+            <p><strong>{{QuantityTotal}}</strong></p>
+        </div>
+        <div class="text-button">
+            <p><strong>Ver carrito</strong></p>
+        </div>
+        <div class="amount-total">
+            <p><strong>{{AmountTotal | currency : 'PEN'}}</strong></p>
+        </div>
+    </button>
+</div>
