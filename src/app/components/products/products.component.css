@@ -97,9 +97,21 @@
     flex-direction: column;
 }
 
-.head-card .ctitle {
-    font-size: 1.1em;
-    font-weight: 600;
+.ctitle {
+    display: flex;
+}
+
+.ctitle p {
+    margin-right: 5px;
+}
+
+.contador {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff0000;
+    text-align: center;
+    color: #fff;
 }
 
 .head-card .cdescrip {
