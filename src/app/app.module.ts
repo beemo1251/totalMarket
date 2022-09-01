@@ -11,6 +11,8 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartHeadComponent } from './components/cart-head/cart-head.component';
 import { registerLocaleData } from '@angular/common';
 import localeEsPe from '@angular/common/locales/es-PE';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localeEsPe, 'es')
 
@@ -26,7 +28,9 @@ registerLocaleData(localeEsPe, 'es')
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: "es-PE"}],
   bootstrap: [AppComponent]

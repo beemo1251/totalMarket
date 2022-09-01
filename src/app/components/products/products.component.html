@@ -1,6 +1,6 @@
-<div class="sidebar">
+<div class="sidebar" *ngIf="mostrarLista">
     <div class="item-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass" (click)="buscarProductoLista()"></i>
     </div>
     <div class="item-menu">
         <i class="fa-solid fa-bars"></i>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="products">
+<div class="products" *ngIf="mostrarLista">
     <div class="content-products">
         <div class="category">
             <p class="title-category">COCINA</p>
@@ -41,16 +41,69 @@
         </div>
     </div>
 </div>
+<div class="search-product" *ngIf="!mostrarLista">
+    <div class="input-search">
+        <!-- <input type="text" #text (change) = "buscarProducto(text.value)" > -->
+        <input type="text" [(ngModel)]="buscar" (ngModelChange)="buscarProducto($event)">
+        <button type="button" (click)="cerrarBuscador()">Cerrar</button>
+    </div>
+    <div class="products" *ngIf="!mostrarLista">
+        <div class="content-products">
+            <div class="category">
+                <p class="title-category">COCINA</p>
+                <div class="list-products">
+                    <div class="card-product" *ngFor="let product of productosFilter">
+                        <div class="img-product">
+                            <img src='../../../assets/images/{{product.idItem}}.webp' alt="">
+                        </div>
+                        <div class="content-product">
+                            <div class="head-card">
+                                <div class="ctitle"><!--<p class="contador">1</p>--><p><strong>{{product.desc1Item}}</strong></p></div>
+                                <p class="cdescrip">{{product.desc2Item}}</p>
+                            </div>
+                            <div class="footer-card">
+                                <p>{{product.price | currency : 'PEN'}}</p>
+                                <button type="button" class="action-card" (click)="enviarProducto(product, 1)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="btn-carrito" *ngIf="QuantityTotal!=0">
     <button type="button" [routerLink]="['/cart']">
         <div class="quantity-total">
-            <p><strong>{{QuantityTotal}}</strong></p>
+            <strong>{{QuantityTotal}}</strong>
         </div>
         <div class="text-button">
-            <p><strong>Ver carrito</strong></p>
+            <strong>Ver carrito</strong>
         </div>
         <div class="amount-total">
-            <p><strong>{{AmountTotal | currency : 'PEN'}}</strong></p>
+            <strong>{{AmountTotal | currency : 'PEN'}}</strong>
         </div>
     </button>
 </div>
+
+<!-- MODAL -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Date of birth</label>
+          <div class="input-group">
+            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>

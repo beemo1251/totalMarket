@@ -2,7 +2,6 @@
 
 .sidebar {
     display: flex;
-    margin-top: 20px;
     width: 100%;
 }
 
@@ -26,19 +25,22 @@
 
 .item-list {
     width: 94%;
+    height: 100%;
     display: flex;
+    align-items: center;
 }
 
 .item-list ul {
     list-style: none;
     display: flex;
     margin-left: 10px;
+    margin-bottom: auto;
 }
 
 .item-list ul li {
     margin: 0 6px 0 6px;
     padding: 3px;
-    border: 1px solid rgb(189, 189, 189);
+    border: 1px solid rgb(213, 213, 213);
     border-radius: 4px;
 }
 
@@ -74,7 +76,7 @@
 }
 
 .card-product {
-    height: 130px;
+    height: 145px;
     display: flex;
     border: 1px solid rgb(189, 189, 189);
     border-radius: 10px;
@@ -154,7 +156,7 @@
 .btn-carrito {
     /* width: 100%; */
     width: 75.5vw;
-    height: 35px;
+    height: 40px;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -190,6 +192,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 2px;
+    text-align: center;
 }
 
 .amount-total {
