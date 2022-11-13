@@ -1,24 +1,37 @@
 .back-menu {
-    margin-left: 5px;
+  margin-left: 5px;
+  padding-right: 90px;
+  color: #0D30BE;
 }
 
-.back-menu button {
+.back-menu i {
+    cursor: pointer;
+  margin-right: 10px;
+}
+
+  .back-menu i:hover {
+    cursor: pointer;
+    background: #ff000023;
+    border-radius: 30%;
+  }
+
+  .back-menu button {
     margin: 15px;
-    border: 1px solid #ff0000;
+    border: 1px solid #0D30BE;
     border-radius: 5px;
     background: none;
     width: 14%;
     height: 25px;
-    color: #ff0000;
+    color: #0D30BE;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
+  }
 
-.back-menu button:hover {
-    background: #ff00001b;
-    cursor: pointer;
-}
+    .back-menu button:hover {
+      background: #6f81c9;
+      cursor: pointer;
+    }
 
 .bar-description {
     width: 100%;
@@ -32,15 +45,22 @@
 }
 
 .title-bar {
-    margin: auto 0 auto 0;
-    font-size: 1.2em;
-    font-weight: 700;
+  margin-top: 10px;
+  margin-left: 100px;
+  font-size: 1.6em;
+  font-weight: 700;
+  color: black;
+}
+
+.txt-inicio {
+  text-decoration: none;
+  color: #0D30BE;
 }
 
 .description-bar {
     margin: auto 0 auto 0;
-    display: flex;
-    width: 120px;
+    display: inline-block;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -50,26 +70,27 @@
 }
 
 .description-bar .total-amount {
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .list-cart {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
+  width: 70%;
+  display: inline-block;
+  flex-direction: column;
+  padding: 10px;
+  padding-left: 50px;
 }
 
 .card-product {
     width: 100%;
     display: flex;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #bfbfbf;
-    margin-top: 15px;
 }
 
 .img-product {
     width: 8%;
+    height:20%;
 }
 
 .img-product img {
@@ -83,21 +104,54 @@
     margin-left: 15px;
 }
 
+.desc-prod {
+  padding-top: 20px;
+  width: 100%;
+  display: inline-block;
+}
+
+.desc-prod1 {
+  margin-left: 6cm;
+  display: inline-block;
+}
+
+.desc-prod2 {
+  margin-left: 7.3cm;
+  display: inline-block;
+}
+
+.desc-prod3 {
+  margin-left: 6.5cm;
+  display: inline-block;
+}
+
 .head-card .ctitle {
-    font-size: 0.8em;
+  display: inline-block;
+  margin-top: 25px;
+  width: 45%;
+  margin-left: 30px;
+  font-size: 0.8em;
 }
 
 .head-card .cprice {
-    font-size: 0.8em;
-    font-weight: 700;
-    color: #ff0000;
+  padding-left: 53%;
+  display: inline-block;
+  height: 10%;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #0D30BE;
+}
+
+.div-cprice {
+  margin-top: -40px;
+
 }
 
 .footer-card {
     width: 100%;
     display: flex;
     justify-content: end;
-    margin-top: auto;
+    margin-top: -40px;
 }
 
 .action-card {
@@ -108,7 +162,7 @@
     align-items: center;
 }
 
-.action-card i {
+  .action-card i {
     width: 22px;
     height: 22px;
     display: flex;
@@ -116,8 +170,8 @@
     align-items: center;
     border: none;
     border-radius: 50%;
-    color: #ff0000;
-}
+    color: #0D30BE;
+  }
 
 .action-card i:hover {
     cursor: pointer;
@@ -127,3 +181,52 @@
 .action-card p {
     margin: auto;
 }
+
+.desc-cart {
+  position: absolute;
+  display: inline-block;
+  margin-left: 1.4cm;
+  padding: 40px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.desc-cart h6 {
+    margin-bottom:40px;
+}
+
+.total-amount {
+  padding-right: -30px;
+}
+
+  .total-amount p {
+    margin-right: 50px;
+    display: inline-block;
+  }
+
+.payment {
+  padding: 20px;
+  margin-bottom: -40px;
+}
+
+  .payment button {
+    border: 2px solid #0D30BE;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    background-color: #0D30BE;
+    color: white;
+    transition: all 0.2s linear;
+  }
+
+    .payment button:hover {
+      border: 2px solid #0D04D3;
+      padding: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: #0D04D3;
+      color: white;
+    }
+
+

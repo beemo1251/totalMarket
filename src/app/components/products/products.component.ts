@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ItemResponse } from '../../models/item.models';
-import { items } from '../../data/item.data';
 import { CarritoService } from '../../services/carrito.service';
 import { ModalDismissReasons, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ProductosService } from '../../services/productos.service';
+import { ItemService } from 'src/app/services/item.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ import { ProductosService } from '../../services/productos.service';
 export class ProductsComponent implements OnInit {
 
   item : ItemResponse[] = [];
+  item2 : any;
   items : ItemResponse[] = [];
   @Input() AmountTotal = 0;
   @Input() QuantityTotal = 0;
@@ -20,14 +22,29 @@ export class ProductsComponent implements OnInit {
   closeResult: string = '';
   mostrarLista = true;
   productosFilter: ItemResponse[] = [];
+  listCategoria: String [] = [];
   buscar: string = '';
+  listItemByCategory: ItemResponse[] = [];
+  titleCategory: String = '';
+  usuario: string | null = '';
 
-  constructor(private carritoService : CarritoService, private modalService: NgbModal, private productoService: ProductosService) { 
+  constructor(private carritoService : CarritoService, private modalService: NgbModal, private productoService: ProductosService, private itemService: ItemService, private companyService: CompanyService) { 
     // this.item = items;
   }
 
   ngOnInit(): void {
-    this.item = items;
+    this.companyService.selecCompany();
+    setTimeout(() => {
+      this.itemService.getItems(this.companyService.nameApi).subscribe((resp: any) => {
+      this.item = resp;
+      this.listCategoria = this.productoService.listarCategoria();
+      this.listItemByCategory = this.productoService.listItemByCategory(this.listCategoria);
+      this.usuario = localStorage.getItem('cliente');
+      })
+    }, 500);
+
+
+    // this.item = items;
     this.items = this.carritoService.listarCarrito();
     this.AmountTotal = this.carritoService.calcularAmountTotal(this.items);
     this.QuantityTotal = this.carritoService.calcularQuantityTotal(this.items);

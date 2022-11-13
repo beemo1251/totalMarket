@@ -1,37 +1,66 @@
-<div class="back-menu">
-    <button type="button" class="" [routerLink]="['/products']"><i class="fa-solid fa-angle-left"></i>Volver al menú</button>
-</div>
+<!--<div class="back-menu">
+  <button type="button" [routerLink]="['/products']"><i class="fa-solid fa-angle-left"></i>Volver al Inicio</button>
+</div>-->
 <div class="bar-description">
-    <div class="title-bar">
-        <p>Su Carrito</p>
-    </div>
-    <div class="description-bar">
-        <div class="quantity">
-            <p *ngIf="TotalQuantity>0">{{TotalQuantity}}</p>
-        </div>
-        <div class="total-amount">
-            <p *ngIf="TotalAmount>0">{{TotalAmount | currency : 'PEN'}}</p>
-        </div>
-    </div>
+  <div class="title-bar">
+    <p>Carrito</p>
+  </div>
+  <div class="back-menu">
+    <i [routerLink]="['/products']" class="fa-solid fa-house-chimney"></i><a class="txt-inicio" [routerLink]="['/products']">Inicio </a>/ Carrito
+  </div>
+</div>
+<div class="desc-prod">
+  <div class="desc-prod1">
+    <p><strong>Producto</strong></p>
+  </div>
+  <div class="desc-prod2">
+    <p><strong>Precio</strong></p>
+  </div>
+  <div class="desc-prod3">
+    <p><strong>Cantidad</strong></p>
+  </div>
+
 </div>
 <div class="list-cart">
-    <div class="card-product" *ngFor="let item of item">
-        <div class="img-product">
-            <img src="../../../assets/images/{{item.idItem}}.webp" alt="">
-        </div>
-        <div class="content-product">
-            <div class="head-card">
-                <p class="ctitle">{{item.desc1Item}}</p>
-                <p class="cprice">{{item.price | currency : 'PEN'}}</p>
-            </div>
-            <div class="footer-card">
-                <div class="action-card">
-                    <i class="fa-solid fa-trash" (click)="quitarProducto(item)" *ngIf="item.stock==1"></i>
-                    <i class="fa-solid fa-minus" (click)="restarCantidad(item, -1)" *ngIf="item.stock>1" ></i>
-                    <p>{{item.stock}}</p>
-                    <i class="fa-solid fa-plus" (click)="sumarCantidad(item, 1)" ></i>
-                </div>
-            </div>
-        </div>
+  <div class="card-product" *ngFor="let item of item">
+    <div class="img-product">
+      <img src="../../../assets/images/{{item.No_}}.webp" alt="">
     </div>
+    <div class="content-product">
+      <div class="head-card">
+        <p class="ctitle">{{item.searchDescription}}</p>
+        <div class="div-cprice">
+          <p class="cprice">{{item.unitPrice | currency : 'PEN'}}</p>
+        </div>
+        <div class="footer-card">
+          <div class="action-card">
+            <i class="fa-solid fa-trash" (click)="quitarProducto(item)" *ngIf="item.inventory==1"></i>
+            <i class="fa-solid fa-minus" (click)="restarCantidad(item, -1)" *ngIf="item.inventory>1"></i>
+            <p>{{item.inventory}}</p>
+            <i class="fa-solid fa-plus" (click)="sumarCantidad(item, 1)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="desc-cart">
+  <h6><strong>TOTAL DEL CARRITO</strong></h6>
+  <div class="total-cart">
+    <div class="description-bar">
+      <!--<div class="quantity">
+        <p *ngIf="TotalQuantity>0">{{TotalQuantity}}</p>
+      </div>-->
+      <div class="total-amount">
+        <p>Total: </p>
+        <p *ngIf="TotalAmount>0"><strong>{{TotalAmount | currency : 'PEN'}}</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="action-payment">
+    <div class="payment">
+      <button type="button" class="btn-payment" (click)="comprar()">Finalizar Compra</button>
+    </div>
+  </div>
+</div>
+

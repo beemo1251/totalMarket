@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ItemService } from './services/item.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web_TotalMarket';
+
+  constructor(
+    private itemService:ItemService
+  ){
+  }
 }

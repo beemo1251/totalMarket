@@ -1,17 +1,59 @@
-<div class="navbar">
-    <div class="banner-navbar">
-        <img src="../../../assets/images/banner.webp" alt="">
-    </div>
-    <div class="logo-navbar">
-        <img src="../../../assets/images/logo.webp" alt="">
-    </div>
-    <div class="title-navbar">
-        <h4><strong>TOTAL MARKET</strong></h4>
-    </div>
-    <div class="social-navbar">
-        <div class="content-social">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
+ <!-- CABECERA -->
+<header class="header">
+  <div class="header-main">
+    <div class="container logo-nav">
+      <div class="img-logo">
+        <img class="logo" src="../../../assets/images/logo_2.jpg" alt="" />
+        <div class="form">
+          <form class="d-flex" role="search">
+            <select class="menu-cate">
+              <option href="#" selected>Todas las categorias</option>
+              <option href="#">SmartWatch</option>
+              <option href="#">Jugueteria</option>
+              <option href="#">Tecnologia</option>
+              <option href="#">Sillas niños</option>
+            </select>
+            <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Buscar producto...">
+            <button type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
         </div>
+        <!--<div class="content-social-log">-->
+        <div class="icons">
+          <a [routerLink]="['/login']"><i class="fa-regular fa-user"></i></a>
+          <a href="#"><i class="fa-regular fa-heart"></i></a>
+          <a [routerLink]="['/cart']"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        <!-- <a (click)="logout()">Cerrar Sesion</a> -->
+        <!--</div>-->
+      </div>
     </div>
-</div>
+    <div class="post-logo">
+      <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
+      <nav class="navigation">
+        <ul class="show">
+          <li><a [routerLink]="['/products']">Inicio</a></li>
+          <li><a href="#">Empresa</a></li>
+          <li><a [routerLink]="['/products']">Productos</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a [routerLink]="['/catalogo']" *ngIf="admin!=''&&admin!=null">Catálogo</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="banner-navbar">
+      <div class="slider">
+        <ul>
+          <li>
+            <img src="../../../assets/images/banner_2.png" alt="">
+          </li>
+          <li>
+            <img src="../../../assets/images/banner.webp" alt="">
+          </li>
+          <li>
+            <img src="../../../assets/images/logo_2.jpg" alt="">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

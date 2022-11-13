@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+<div class="catalogo">
+    <div class="actionPDF">
+        <div class="btn-pdf">
+            <button type="button" (click)="downloadPDF()">Descargar Catálogo</button>
+        </div>
+        <div class="filter">
+            <input type="text" class="filter-products" [(ngModel)]="filtrar" name="filtrar" (ngModelChange)="filtrarProductos('', '', 3)" placeholder="Buscar Producto">
+        </div>
+        <div class="categories">
+            <div class="title-subfilter">
+                <span><i class="fa-solid fa-angle-down"></i></span>
+                <span>Categorias</span>
+            </div>
+            <ul>
+                <li class="item-category" id="item-cate" *ngFor="let cate of listCategoria"><span (click)="filtrarProductos(cate, '', 3)">{{cate}}</span><span>5</span></li>
+            </ul>
+        </div>
+        <div class="precios">
+            <div class="title-subfilter">
+                <span><i class="fa-solid fa-angle-down"></i></span>
+                <span>Precio</span>
+            </div>
+            <div class="price-input">
+                <div class="field">
+                    <span>Min</span>
+                    <input type="number" id="input-min" class="input" [(ngModel)]="precioLeft" name="precioLeft" (ngModelChange)="filtrarProductos('', '', 0)">
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                    <span>Max</span>
+                    <input type="number" id="input-max" class="input" [(ngModel)]="precioRight" name="precioRight" (ngModelChange)="filtrarProductos('', '', 1)">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="progress"></div>
+            </div>
+            <div class="range-input">
+                <input type="range" id="range-min" class="range-min" min="0" max="10000" [(ngModel)]="precioLeft" name="precioLeft" (ngModelChange)="filtrarProductos('', '', 3)" step="10">
+                <input type="range" id="range-max" class="range-max" min="0" max="10000" [(ngModel)]="precioRight" name="precioRight" (ngModelChange)="filtrarProductos('', '', 3)" step="10">
+            </div>
+        </div>
+        <div class="marca">
+            <div class="title-subfilter">
+                <span><i class="fa-solid fa-angle-down"></i></span>
+                <span>Marca</span>
+            </div>
+            <ul>
+                <li class="item-marca" *ngFor="let marca of listMarca">
+                    <span>{{marca}}</span>
+                    <input type="checkbox" (click)="filtrarProductos('', marca, 3)">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="" style="width: 75%; display: flex; flex-direction: column;">
+        <!-- <div class="products">
+            <div class="content-products">
+                <div class="category">
+                    <div class="list-products" id="">
+                        <div class="card-product" *ngFor="let category of listItemByCategory | paginate: { itemsPerPage: cantPage, currentPage: page}">
+                            <div class="img-product">
+                                <img src='../../../assets/images/{{category.No_}}.webp' alt="">
+                            </div>
+                            <div class="content-product">
+                                <div class="head-card">
+                                    <div class="ctitle"><p><strong>{{category.searchDescription}}</strong></p></div>
+                                    <p class="cdescrip">{{category.manufacturerCode}}</p>
+                                </div>
+                                <div class="footer-card">
+                                    <p>{{category.unitPrice | currency : 'PEN'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div> -->
+        <div class="products">
+            <div class="content-products">
+                <div class="category" id="print">
+                    <div class="list-products" *ngFor="let i of listPDF" id="htmlData">
+                        <div class="card-product" *ngFor="let c of this.itemsPagePDF(i)">
+                            <div class="img-product">
+                                <img src='../../../assets/images/{{c.No_}}.webp' alt="">
+                            </div>
+                            <div class="content-product">
+                                <div class="head-card">
+                                    <div class="ctitle"><p><strong>{{c.searchDescription}}</strong></p></div>
+                                    <p class="cdescrip">{{c.manufacturerCode}}</p>
+                                </div>
+                                <div class="footer-card">
+                                    <p>{{c.unitPrice | currency : 'PEN'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

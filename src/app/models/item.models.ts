@@ -1,10 +1,11 @@
 export interface ItemResponse {
-    idItem: string;
-    desc1Item: string;
-    desc2Item: string;
-    price: number;
-    stock: number;
-    estado: EstadoItem;
+    No_: string;
+    SKU: string;
+    searchDescription: string;
+    itemCategory: string;
+    manufacturerCode: string;
+    unitPrice: number;
+    inventory: number;
 }
 
 export interface EstadoItem {

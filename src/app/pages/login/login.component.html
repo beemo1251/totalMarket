@@ -1,0 +1,32 @@
+<div class="content-login col-6">
+  <h2>Inicio de Sesión</h2>
+  <div class="accs">
+    <p><strong>Acceder</strong></p>
+  </div>
+  <div class="login">
+    <form [formGroup]="formGroup" class="needs-validation" id="formLogin">
+      <div class="mb-3">
+        <label class="form-label">Telefono:</label>
+        <input type="text" class="form-control" formControlName="telefono" placeholder="Nro. Teléfono" required>
+        <div class="invalid-feedback">
+          Este campo no puede estar vacio.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required>
+        <div class="invalid-feedback">
+          Este campo no puede estar vacio.
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col">
+        <button (click)="signIn()" class="btn btn-primary">Iniciar Sesión</button>
+      </div>
+    </div>
+    <div class="colu">
+      <a [routerLink]="['/register']">Registrarme</a>
+    </div>
+  </div>
+</div>
